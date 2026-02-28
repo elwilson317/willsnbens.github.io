@@ -1,83 +1,73 @@
-:root {
-  --black: #0B0B0B;
-  --charcoal: #1C1C1C;
-  --soft-grey: #EAEAEA;
-  --ivory: #F7F6F3;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  height: 100vh;
-  background: var(--ivory);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #0b1c2d;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
-  color: var(--black);
-  overflow: hidden;
+  height: 100vh;
+  text-align: center;
 }
 
 .container {
-  text-align: center;
-  animation: fadeIn 2s ease;
+  max-width: 700px;
+  padding: 20px;
 }
 
 .logo {
   width: 140px;
-  margin-bottom: 25px;
-  animation: luxuryPulse 4s infinite ease-in-out;
+  margin-bottom: 20px;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 42px;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .sub {
-  font-size: 14px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--charcoal);
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 25px;
 }
 
 .divider {
   width: 60px;
-  height: 1px;
-  background: var(--charcoal);
-  margin: 25px auto;
-  opacity: 0.5;
+  height: 2px;
+  background: #c8a96a;
+  margin: 20px auto;
 }
 
-.coming {
-  font-size: 13px;
-  letter-spacing: 2px;
-  opacity: 0.6;
+.contact-title {
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
-/* Elegant slow pulse */
-@keyframes luxuryPulse {
-  0% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0px rgba(0,0,0,0.1));
-  }
-  50% {
-    transform: scale(1.04);
-    filter: drop-shadow(0 0 20px rgba(0,0,0,0.15));
-  }
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0px rgba(0,0,0,0.1));
-  }
+.contact-block {
+  margin-bottom: 20px;
+  line-height: 1.8;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.contact-block a {
+  color: #c8a96a;
+  text-decoration: none;
+}
+
+.contact-block a:hover {
+  text-decoration: underline;
+}
+
+.address {
+  margin-top: 25px;
+  font-size: 14px;
+  opacity: 0.7;
 }
