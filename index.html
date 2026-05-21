@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -40,13 +41,13 @@ body{
   cursor:none;
 }
 
-/* CUSTOM CURSOR */
+/* PREMIUM CURSOR */
 
 .custom-cursor{
-  width:22px;
-  height:22px;
+  width:42px;
+  height:42px;
 
-  border:1.5px solid #c7a56d;
+  border:1.5px solid rgba(199,165,109,.9);
 
   border-radius:50%;
 
@@ -59,22 +60,48 @@ body{
   z-index:99999;
 
   transition:
-  transform .08s linear,
-  width .2s ease,
-  height .2s ease,
-  background .2s ease,
-  border .2s ease;
+  width .25s ease,
+  height .25s ease,
+  background .25s ease,
+  border .25s ease,
+  transform .08s linear;
 
-  backdrop-filter:blur(2px);
+  backdrop-filter:blur(3px);
+
+  box-shadow:
+  0 0 18px rgba(199,165,109,.18),
+  0 0 40px rgba(199,165,109,.08);
+}
+
+.custom-cursor::before{
+  content:'';
+
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  width:6px;
+  height:6px;
+
+  background:#c7a56d;
+
+  border-radius:50%;
+
+  transform:translate(-50%,-50%);
 }
 
 .custom-cursor.active{
-  width:44px;
-  height:44px;
+  width:72px;
+  height:72px;
 
-  background:rgba(199,165,109,.12);
+  background:rgba(199,165,109,.08);
 
   border:1px solid rgba(199,165,109,.7);
+
+  box-shadow:
+  0 0 28px rgba(199,165,109,.28),
+  0 0 60px rgba(199,165,109,.12);
 }
 
 /* NAVBAR */
@@ -465,13 +492,7 @@ nav a:hover{
   font-size:1.7rem;
   font-weight:500;
 
-  margin-bottom:10px;
-}
-
-.agent p{
-  color:#8d8d8d;
-
-  margin-bottom:14px;
+  margin-bottom:16px;
 }
 
 .agent a{
@@ -815,10 +836,6 @@ src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1200&au
 
 <h3>Rajesh Sharma</h3>
 
-<p>
-Senior Property Consultant
-</p>
-
 <a href="tel:+971504248314">
 +971 50 424 8314
 </a>
@@ -832,10 +849,6 @@ rajesh@willsnbens.com
 <div class="agent">
 
 <h3>Wilson George</h3>
-
-<p>
-Senior Property Consultant
-</p>
 
 <a href="tel:+971562017773">
 +971 56 201 7773
@@ -947,16 +960,36 @@ reveals[i].classList.add("active");
 
 reveal();
 
-/* CUSTOM CURSOR */
+/* PREMIUM CURSOR */
 
 const cursor = document.querySelector('.custom-cursor');
 
+let mouseX = 0;
+let mouseY = 0;
+
+let cursorX = 0;
+let cursorY = 0;
+
 document.addEventListener('mousemove', (e) => {
 
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
+mouseX = e.clientX;
+mouseY = e.clientY;
 
 });
+
+function animateCursor(){
+
+cursorX += (mouseX - cursorX) * 0.18;
+cursorY += (mouseY - cursorY) * 0.18;
+
+cursor.style.left = cursorX + 'px';
+cursor.style.top = cursorY + 'px';
+
+requestAnimationFrame(animateCursor);
+
+}
+
+animateCursor();
 
 document.querySelectorAll('a, button').forEach((el) => {
 
