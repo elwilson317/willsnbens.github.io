@@ -37,6 +37,45 @@ body{
   -moz-osx-font-smoothing:grayscale;
 
   text-rendering:optimizeLegibility;
+
+  cursor:none;
+}
+
+/* CUSTOM CURSOR */
+
+.custom-cursor{
+  width:22px;
+  height:22px;
+
+  border:1.5px solid #c7a56d;
+
+  border-radius:50%;
+
+  position:fixed;
+
+  pointer-events:none;
+
+  transform:translate(-50%,-50%);
+
+  z-index:99999;
+
+  transition:
+  transform .08s linear,
+  width .2s ease,
+  height .2s ease,
+  background .2s ease,
+  border .2s ease;
+
+  backdrop-filter:blur(2px);
+}
+
+.custom-cursor.active{
+  width:44px;
+  height:44px;
+
+  background:rgba(199,165,109,.12);
+
+  border:1px solid rgba(199,165,109,.7);
 }
 
 /* NAVBAR */
@@ -596,6 +635,14 @@ footer span{
 
 @media(max-width:1000px){
 
+  body{
+    cursor:auto;
+  }
+
+  .custom-cursor{
+    display:none;
+  }
+
   nav{
     padding:22px;
   }
@@ -677,18 +724,20 @@ footer span{
 </head>
 <body>
 
+<div class="custom-cursor"></div>
+
 <nav>
 
 <div class="logo-wrap">
 
 <img
 class="icon-logo"
-src="sqlogo.png"
+src="wb-icon.png"
 >
 
 <img
 class="nav-logo"
-src="image(5).png"
+src="logo.png"
 >
 
 </div>
@@ -740,7 +789,7 @@ Our Agents
 
 <img
 class="hero-logo"
-src="image(6).png"
+src="hero-logo.png"
 >
 
 </div>
@@ -769,6 +818,9 @@ src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1200&au
 
 <h3>Rajesh Sharma</h3>
 
+<p>
+Senior Property Consultant
+</p>
 
 <a href="tel:+971504248314">
 +971 50 424 8314
@@ -784,6 +836,9 @@ rajesh@willsnbens.com
 
 <h3>Wilson George</h3>
 
+<p>
+Senior Property Consultant
+</p>
 
 <a href="tel:+971562017773">
 +971 56 201 7773
@@ -803,7 +858,7 @@ wilson@willsnbens.com
 
 <img
 class="small-logo"
-src="image(5).png"
+src="logo.png"
 >
 
 <h2>
@@ -894,6 +949,29 @@ reveals[i].classList.add("active");
 }
 
 reveal();
+
+/* CUSTOM CURSOR */
+
+const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
+
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
+
+});
+
+document.querySelectorAll('a, button').forEach((el) => {
+
+el.addEventListener('mouseenter', () => {
+cursor.classList.add('active');
+});
+
+el.addEventListener('mouseleave', () => {
+cursor.classList.remove('active');
+});
+
+});
 
 </script>
 
