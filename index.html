@@ -98,10 +98,6 @@ body{
   background:rgba(199,165,109,.08);
 
   border:1px solid rgba(199,165,109,.7);
-
-  box-shadow:
-  0 0 28px rgba(199,165,109,.28),
-  0 0 60px rgba(199,165,109,.12);
 }
 
 /* NAVBAR */
@@ -138,24 +134,12 @@ nav{
   height:72px;
 
   object-fit:contain;
-
-  filter:
-  contrast(1.2)
-  brightness(1.12);
-
-  image-rendering:-webkit-optimize-contrast;
 }
 
 .nav-logo{
   width:250px;
 
   object-fit:contain;
-
-  filter:
-  contrast(1.08)
-  brightness(1.05);
-
-  image-rendering:-webkit-optimize-contrast;
 }
 
 nav ul{
@@ -230,8 +214,6 @@ nav a:hover{
     rgba(0,0,0,.15)
   );
 }
-
-/* HERO CONTENT */
 
 .hero-content{
   position:relative;
@@ -312,7 +294,6 @@ nav a:hover{
 
 .btn-primary:hover{
   transform:translateY(-4px);
-  background:#d5b27a;
 }
 
 .btn-secondary{
@@ -351,12 +332,6 @@ nav a:hover{
 
   object-fit:contain;
 
-  filter:
-  contrast(1.18)
-  brightness(1.12);
-
-  image-rendering:-webkit-optimize-contrast;
-
   opacity:.95;
 
   animation:floatLogo 5s ease-in-out infinite;
@@ -374,58 +349,227 @@ nav a:hover{
 
 }
 
-/* SCROLL */
+/* ABOUT SECTION */
 
-.scroll{
-  position:absolute;
+.about-section{
+  padding:140px 70px 80px;
+  background:#070707;
+}
 
-  right:70px;
-  bottom:60px;
+.about-container{
+  width:95%;
+  max-width:1700px;
+  margin:auto;
+}
 
-  z-index:10;
+.about-left h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;
+  margin-bottom:40px;
+}
+
+.about-left{
+  max-width:1050px;
+  margin:0 auto 40px auto;
+}
+
+.about-left h2{
+  text-align:center;
+}
+
+.about-left p{
+  color:#b5b5b5;
+  line-height:2.1;
+  font-size:1.05rem;
+  margin-bottom:28px;
+
+  text-align:center;
+}
+
+/* TEAM */
+
+/* TEAM SECTION */
+
+.team-section{
+  margin-top:420px;
+}
+
+.team-main-title{
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:5rem;
+
+  margin-bottom:70px;
+
+  text-align:center;
+}
+
+/* GRID */
+
+.team-grid{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+/* CARD */
+
+.team-card{
+  background:#0b0b0b;
+
+  border:1px solid rgba(255,255,255,.05);
+
+  border-radius:36px;
+
+  overflow:hidden;
+
+  display:flex;
+
+  align-items:stretch;
+
+  min-height:500px;
+
+  transition:.7s cubic-bezier(.2,.8,.2,1);
+
+  cursor:pointer;
+}
+
+.team-card:hover{
+  border-color:rgba(199,165,109,.25);
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.35);
+}
+
+/* PREVIEW */
+
+.team-preview{
+  width:420px;
+
+  min-width:420px;
+
+  padding:40px;
 
   display:flex;
   flex-direction:column;
-  align-items:center;
 
-  gap:14px;
+  justify-content:flex-start;
+
+  border-right:1px solid rgba(255,255,255,.05);
 }
 
-.scroll-line{
-  width:1px;
-  height:80px;
+.team-image{
+  width:100%;
 
-  background:
-  linear-gradient(
-    to bottom,
-    var(--gold),
-    transparent
-  );
+  height:360px;
 
-  animation:pulse 2s infinite;
+  object-fit:cover;
+
+  border-radius:24px;
+
+  filter:grayscale(100%);
+
+  margin-bottom:30px;
+
+  transition:1s;
 }
 
-@keyframes pulse{
-  0%,100%{
-    opacity:.3;
+.team-image:hover{
+  transform:scale(1.02);
+}
+
+.team-preview h3{
+  font-size:2rem;
+
+  margin-bottom:10px;
+}
+
+.team-preview h4{
+  color:var(--gold);
+
+  font-weight:400;
+
+  letter-spacing:2px;
+}
+
+/* EXPANDED */
+
+.team-expanded{
+  flex:1;
+
+  padding:60px;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+
+  opacity:0;
+
+  transform:translateX(80px);
+
+  transition:.7s ease;
+}
+
+.team-card.active .team-expanded{
+  opacity:1;
+
+  transform:translateX(0);
+}
+
+.team-expanded h3{
+  font-size:2.5rem;
+
+  margin-bottom:32px;
+}
+
+.team-expanded p{
+  color:#b5b5b5;
+
+  line-height:2;
+
+  margin-bottom:24px;
+
+  font-size:1rem;
+}
+
+/* COLLAPSED */
+
+.team-card:not(.active){
+  max-width:520px;
+}
+
+/* EXPANDED */
+
+.team-card.active{
+  max-width:100%;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+  .team-main-title{
+    font-size:3rem;
   }
 
-  50%{
-    opacity:1;
+  .team-card{
+    flex-direction:column;
   }
+
+  .team-preview{
+    width:100%;
+    min-width:100%;
+
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+
+  .team-card:not(.active){
+    max-width:100%;
+  }
+
 }
-
-.scroll span{
-  writing-mode:vertical-rl;
-
-  color:#777;
-
-  font-size:.6rem;
-
-  letter-spacing:4px;
-  text-transform:uppercase;
-}
-
 /* CONTACT */
 
 .contact-section{
@@ -517,12 +661,6 @@ nav a:hover{
   object-fit:contain;
 
   margin-bottom:40px;
-
-  filter:
-  contrast(1.08)
-  brightness(1.05);
-
-  image-rendering:-webkit-optimize-contrast;
 }
 
 .contact-right h2{
@@ -669,10 +807,6 @@ footer span{
     display:none;
   }
 
-  .logo-wrap{
-    gap:12px;
-  }
-
   .icon-logo{
     width:50px;
     height:50px;
@@ -692,17 +826,33 @@ footer span{
     gap:40px;
   }
 
-  .hero-logo-wrap{
-    margin:0 auto;
-    align-self:center;
-  }
-
   .hero-logo{
     width:240px;
   }
 
-  .scroll{
-    display:none;
+ .about-section{
+  min-height:100vh;
+
+  padding:180px 70px 120px;
+
+  background:#070707;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+  .about-left h2{
+    font-size:3rem;
+  }
+
+  .team-card,
+  .team-card.reverse{
+    grid-template-columns:1fr;
+  }
+
+  .team-text h2{
+    font-size:3rem;
   }
 
   .contact-section{
@@ -720,10 +870,6 @@ footer span{
     bottom:0;
 
     margin-top:20px;
-  }
-
-  .small-logo{
-    width:180px;
   }
 
   footer{
@@ -744,6 +890,8 @@ footer span{
 
 <div class="custom-cursor"></div>
 
+<!-- NAVBAR -->
+
 <nav>
 
 <div class="logo-wrap">
@@ -762,10 +910,13 @@ src="image(5).png"
 
 <ul>
 <li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 
 </nav>
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
@@ -785,8 +936,7 @@ your <span>property?</span>
 <p>
 You’ve come to the right place.
 Luxury real estate guidance for buying,
-selling and leasing in Dubai’s most
-prestigious locations.
+selling and leasing in Dubai’s most prestigious locations.
 </p>
 
 <div class="hero-buttons">
@@ -795,8 +945,8 @@ prestigious locations.
 Contact Us
 </a>
 
-<a href="#contact" class="btn btn-secondary">
-Our Agents
+<a href="#about" class="btn btn-secondary">
+Learn More
 </a>
 
 </div>
@@ -812,22 +962,150 @@ src="image(6).png"
 
 </div>
 
-<div class="scroll">
+</section>
 
-<div class="scroll-line"></div>
+<!-- ABOUT -->
 
-<span>Scroll</span>
+<section class="about-section" id="about">
+
+<div class="about-container">
+
+<div class="about-left reveal">
+
+<h2>Company Profile</h2>
+
+<p>
+Wills & Bens Real Estate Brokerage LLC is a premium service-oriented consultancy company, built on the vision of delivering real estate services beyond brilliance. The company was established with the intention of combining strong professional expertise with operational agility to create exceptional value for clients.
+</p>
+
+<p>
+The founding members embody integrity and their extensive industry experience, combined with market insight, makes Wills & Bens the one-stop destination for investors seeking investment opportunities in real estate.
+</p>
+
+<p>
+With an investor-centric approach, Wills & Bens is committed to understanding each client’s unique needs and delivering bespoke solution opportunities.
+</p>
+
+<p>
+At Wills & Bens, we understand that finding a property is much more than just a transaction — it’s an endeavour to build a foundation for a future, and we aim to help you in doing so by building on your trust so that you are confident in your property decisions and thereby creating lasting relations.
+</p>
 
 </div>
 
-</section>
+<!-- TEAM -->
+
+<div class="team-section">
+
+<h2 class="team-main-title reveal">
+Meet our team
+</h2>
+
+<div class="team-grid">
+
+<!-- RAJESH -->
+
+<div class="team-card reveal">
+
+<div class="team-preview">
+
+<img
+class="team-image"
+src="rajesh.jpg"
+>
+
+<h3>Rajesh Sharma</h3>
+
+<h4>Co-Founder</h4>
+
+</div>
+
+<div class="team-expanded">
+
+<p>
+Rajesh Sharma is a resident of Dubai for the past 30 years. Over the years, he has worked with prestigious and luxury brands such as Dubai Holdings, Mercedes Benz, Jaguar and Expo 2020.
+</p>
+
+<p>
+He brings a wealth of in-depth knowledge and firsthand experience across a spectrum of critical business functions, including Sales, Pre-Sales, Post-Sales, Administration, Accounts, EDP and System Integration within the real estate and automotive industry.
+</p>
+
+<p>
+Rajesh provides a 360 corporate advisory consultancy and services for local and international companies. He is well-connected, maintaining a robust network of Ultra-High Net Worth Individuals (UHNWI) and family offices throughout the MENA region,which has been instrumental in driving business growth and establishing market dominance.
+</p>
+
+<p>
+Leveraging market-timing expertise and exclusive off-market opportunities enables him to identify and deliver high-value real estate deals for his clients.
+</p>
+
+<p>
+Alongside, Rajesh is a sports enthusiast and has played professional volleyball. He plays chess, golf and managed the Black Panther Team (B division Cricket) as part of his weekend social engagement.
+</p>
+
+<p>
+When he's not working, he can be seen tending to his plants whilst listening to podcasts and working out at the gym.
+</p>
+
+</div>
+
+</div>
+
+<!-- WILSON -->
+
+<div class="team-card reveal">
+
+<div class="team-preview">
+
+<img
+class="team-image"
+src="wng.jpg"
+>
+
+<h3>Wilson George</h3>
+
+<h4>Co-Founder</h4>
+
+</div>
+
+<div class="team-expanded">
+<p>
+Wilson George has been a part of Dubai’s dynamic business landscape since 1994. He has gained extensive experience by collaborating with professionals from over 50 nationalities across various time zones in the global shipping industry,which has contributed to his exposure to diversity and cultures across markets worldwide.
+</p>
+
+<p>
+By handling complex and high-valued transactions, Wilson has developed strong negotiation skills and an in-depth understanding of global business dynamics.
+</p>
+
+<p>
+He places great importance on transparency and precision, guided by a disciplined commitment to ethical and lawful business practices.
+</p>
+
+<p>
+He has proudly built long-standing professional relationships founded on trust, commitment, and mutual respect, and is thus committed to bringing this global perspective and analytical mindset into the real estate sector.
+</p>
+
+<p>
+Wilson's free time often takes him cycling through Old Town bazaars, discovering new sights and rhythms of the city. He loves watching movies, and feels knowing over ten languages makes the experience richer-he enjoys understanding dialogues, accents, and cultural nuances directly.
+</p>
+<p>
+He also cares for a growing collection of indoor and outdoor plants, which keeps him grounded and observant. Wilson is naturally curious, so he spends a lot of time learning from people, places, and the world around him.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CONTACT -->
 
 <section class="contact-section" id="contact">
 
 <div class="contact-image reveal">
 
 <img
-src="https://assets.entrepreneur.com/images/misc/1700715481_Shutterstock_2150000389.jpg?width=1000"
+src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1200&auto=format&fit=crop"
 >
 
 <div class="contact-card">
@@ -878,8 +1156,7 @@ Experts.
 
 <p>
 Whether you're buying, selling or leasing,
-our team provides tailored guidance for
-Dubai’s premium real estate market.
+our team provides tailored guidance for Dubai’s premium real estate market.
 </p>
 
 <form action="https://formsubmit.co/willsnbens@gmail.com" method="POST">
@@ -922,6 +1199,8 @@ Send Enquiry
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
 <p>
@@ -935,6 +1214,8 @@ Dubai · UAE
 </footer>
 
 <script>
+
+/* REVEAL */
 
 const reveals = document.querySelectorAll('.reveal');
 
@@ -960,7 +1241,7 @@ reveals[i].classList.add("active");
 
 reveal();
 
-/* PREMIUM CURSOR */
+/* CURSOR */
 
 const cursor = document.querySelector('.custom-cursor');
 
@@ -999,6 +1280,16 @@ cursor.classList.add('active');
 
 el.addEventListener('mouseleave', () => {
 cursor.classList.remove('active');
+});
+
+});
+
+document.querySelectorAll('.team-card').forEach(card => {
+
+card.addEventListener('click', () => {
+
+card.classList.toggle('active');
+
 });
 
 });
