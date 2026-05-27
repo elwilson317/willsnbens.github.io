@@ -11,10 +11,10 @@
 <style>
 
 :root{
-  --bg:#050505;
-  --text:#f5f5f5;
-  --gold:#c7a56d;
-  --line:rgba(255,255,255,.08);
+  --bg:#f7f4ee;
+  --text:#111111;
+  --gold:#b68a4c;
+  --line:rgba(0,0,0,.08);
 }
 
 *{
@@ -116,7 +116,7 @@ nav{
 
   padding:24px 70px;
 
-  background:rgba(5,5,5,.45);
+  background:rgba(247,244,238,.78);
 
   backdrop-filter:blur(18px);
 
@@ -150,7 +150,7 @@ nav ul{
 
 nav a{
   text-decoration:none;
-  color:#d6d6d6;
+  color:#111111;
 
   font-size:.72rem;
   letter-spacing:2px;
@@ -187,7 +187,10 @@ nav a:hover{
 
   object-fit:cover;
 
-  filter:grayscale(100%) brightness(.35);
+  filter:
+  grayscale(100%)
+  brightness(.68)
+  contrast(1.08);
 
   transform:scale(1.05);
 
@@ -209,9 +212,9 @@ nav a:hover{
   background:
   linear-gradient(
     to top,
-    rgba(0,0,0,.96),
-    rgba(0,0,0,.45),
-    rgba(0,0,0,.15)
+    rgba(247,244,238,.28),
+    rgba(247,244,238,.08),
+    rgba(247,244,238,.02)
   );
 }
 
@@ -235,6 +238,11 @@ nav a:hover{
 
   margin-bottom:28px;
 
+  color:#f5f5f5;
+
+  text-shadow:
+  0 10px 30px rgba(0,0,0,.45);
+
   opacity:0;
   transform:translateY(50px);
 
@@ -249,12 +257,15 @@ nav a:hover{
 .hero p{
   max-width:560px;
 
-  color:#b7b7b7;
+  color:#ededed;
 
   line-height:2;
   font-size:1rem;
 
   margin-bottom:42px;
+
+  text-shadow:
+  0 5px 20px rgba(0,0,0,.45);
 
   opacity:0;
   transform:translateY(40px);
@@ -353,7 +364,7 @@ nav a:hover{
 
 .about-section{
   padding:140px 70px 80px;
-  background:#070707;
+  background:#f7f4ee;
 }
 
 .about-container{
@@ -378,7 +389,7 @@ nav a:hover{
 }
 
 .about-left p{
-  color:#b5b5b5;
+  color:#4d4d4d;
   line-height:2.1;
   font-size:1.05rem;
   margin-bottom:28px;
@@ -415,7 +426,7 @@ nav a:hover{
 /* CARD */
 
 .team-card{
-  background:#0b0b0b;
+  background:white;
 
   border:1px solid rgba(255,255,255,.05);
 
@@ -524,7 +535,7 @@ nav a:hover{
 }
 
 .team-expanded p{
-  color:#b5b5b5;
+  color:#4d4d4d;
 
   line-height:2;
 
@@ -615,7 +626,7 @@ nav a:hover{
 
   border-radius:28px;
 
-  background:rgba(8,8,8,.92);
+  background:rgba(255,255,255,.92);
 
   backdrop-filter:blur(18px);
 
@@ -644,7 +655,7 @@ nav a:hover{
 
   text-decoration:none;
 
-  color:#d8d8d8;
+  color:#222222;
 
   margin-top:8px;
 
@@ -700,7 +711,7 @@ form{
 
 input,
 textarea{
-  background:#0b0b0b;
+  background:white;
 
   border:1px solid rgba(255,255,255,.08);
 
@@ -708,7 +719,7 @@ textarea{
 
   border-radius:18px;
 
-  color:white;
+  color:#111111;
 
   font-family:'Inter',sans-serif;
 
@@ -903,7 +914,7 @@ src="sqlogo.png"
 
 <img
 class="nav-logo"
-src="image(5).png"
+src="invb.png"
 >
 
 </div>
@@ -958,7 +969,7 @@ Learn More
 
 <img
 class="hero-logo"
-src="image(6).png"
+src="biglogo.png"
 >
 
 </div>
